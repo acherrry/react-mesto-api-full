@@ -28,6 +28,7 @@ function App() {
   const [cardToDelete, setCardToDelete] = React.useState({});
   const [selectedCard, setSelectedCard] = React.useState(null);
   const [loggedIn, setLoggedIn] = React.useState(false);
+  console.log(loggedIn);
   const [email, setEmail] = React.useState("");
   const [isInfoTooltip, setIsInfoTooltip] = React.useState(false);
   const [tooltipImg, setTooltipImg] = React.useState(false);
@@ -37,6 +38,21 @@ function App() {
 
   React.useEffect(() => {
     if (loggedIn) {
+      history.push("/");
+
+      Promise.all([api.getUserInfo(), api.getCards()])
+      .then(([userData, cardsArray]) => {
+        console.log(cardsArray);
+        setCurrentUser(userData);
+        setCards(cardsArray.reverse());
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    }
+  }, [loggedIn, history]);
+  
+  React.useEffect(() => {
       Auth.getContent()
         .then((res) => {
         setEmail(res.email);
@@ -45,23 +61,7 @@ function App() {
       .catch(err => {
         console.log(`${err}`);
       });
-  }
-  }, [loggedIn, history]);
-
-  React.useEffect(() => {
-    if (loggedIn) {
-      history.push("/");
-
-      Promise.all([api.getUserInfo(), api.getCards()])
-      .then(([userData, cardsArray]) => {
-        setCurrentUser(userData);
-        setCards(cardsArray);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    }
-  }, [loggedIn, history]);
+  }, [history]);
 
   const onLogin = (data) => {
     setEmail(data.email);
@@ -98,7 +98,7 @@ function App() {
   };
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     if (!isLiked) {
       api
         .putSettingLike(card._id)

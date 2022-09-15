@@ -46,7 +46,7 @@ app.post('/signin', express.json(), celebrate({
   }),
 }), login);
 
-app.get('/signout', loginOut);
+app.delete('/signout', loginOut);
 
 app.use(auth);
 app.use(userRouter);

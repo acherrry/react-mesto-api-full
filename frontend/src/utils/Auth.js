@@ -45,13 +45,14 @@ export const getContent = () => {
   .then(checkResponse);
 }
 
-export const loginOut = () => {
+export const loginOut = (res) => {
   return fetch(`${BASE_URL}/signout`, {
     credentials: 'include',
-    method: 'GET',
+    method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     }
   })
-  .then(checkResponse);
+  .then(res)
+  .catch(err => console.log(err))
 };
