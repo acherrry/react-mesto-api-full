@@ -1,0 +1,26 @@
+.sign-container__button-save {
+  padding: 0;
+  border-radius: 2px;
+  border: none;
+  max-width: 358px;
+  min-height: 50px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.22;
+  text-align: center;
+  transition: opacity 0.2s linear;
+  cursor: pointer;
+  margin-top: 216px;
+  background: #FFFFFF;
+  color: #000000;
+}
+
+.sign-container__button-save:hover {
+  opacity: 0.85;
+}
+
+@media screen and (max-width: 400px) {
+  .sign-container__button-save {
+    margin-top: 173px;
+  }
+}

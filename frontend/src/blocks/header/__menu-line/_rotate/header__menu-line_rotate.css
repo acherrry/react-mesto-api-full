@@ -1,0 +1,7 @@
+.header__menu-line_rotate:first-child {
+  transform: rotate(45deg) translateY(1px) translateX(2px);
+}
+
+.header__menu-line_rotate:last-child {
+  transform: rotate(-45deg) translateY(1px) ;
+}

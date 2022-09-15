@@ -1,0 +1,23 @@
+.profile__personal-data {
+  align-items: baseline;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  align-content: center;
+  column-gap: 19px;
+  row-gap: 9px;
+}
+
+@media screen and (max-width: 981px) {
+  .profile__personal-data {
+    text-align: center;
+    justify-items: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__personal-data {
+    align-items: center;
+    row-gap: 7px;
+    column-gap: 11px;
+  }
+}

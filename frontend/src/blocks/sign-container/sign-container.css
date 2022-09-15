@@ -1,0 +1,16 @@
+.sign-container {
+  margin: 0 auto;
+  max-width: 358px;
+}
+
+@media screen and (max-width: 570px) {
+  .sign-container {
+    max-width: 282px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .sign-container {
+    max-width: 260px;
+  }
+}

@@ -1,0 +1,13 @@
+.sign-container__signin {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 400px) {
+  .sign-container__signin {
+    margin-top: 20px;
+  }
+}

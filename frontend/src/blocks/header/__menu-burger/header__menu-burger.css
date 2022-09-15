@@ -1,0 +1,30 @@
+.header__menu-burger {
+  cursor: pointer;
+  display: none;
+  height: 25px;
+  width: 24px;
+  padding: 0;
+  border: none;
+  background-color: #000000;
+  transition: opacity 0.2s linear;
+  position: relative;
+}
+
+.header__menu-burger:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 600px) {
+  .header__menu-burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 6px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header__menu-burger {
+    margin-right: 30px;
+  }
+}

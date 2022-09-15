@@ -1,0 +1,10 @@
+.header__menu-line {
+  background-color: #FFFFFF;
+  height: 3px;
+  width: 24px;
+  z-index: 1;
+  display: block;
+  transform-origin: left center;
+  transition-duration: .15s;
+  transition-property: background-color,opacity,transform;
+}

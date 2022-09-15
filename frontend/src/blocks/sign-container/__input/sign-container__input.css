@@ -1,0 +1,28 @@
+.sign-container__input {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  border: 0;
+  box-sizing: border-box;
+  border-bottom: 2px solid #CCCCCC;
+  color: #CCCCCC;
+  background-color: black;
+  margin-top: 30px;
+  padding: 0 0 13px;
+}
+
+.sign-container__input:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 400px) {
+  .sign-container__input:first-child {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sign-container__input:last-child {
+    margin-top: 30px;
+  }
+}

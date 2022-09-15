@@ -1,0 +1,14 @@
+.sign-container__login-link {
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  color: #FFFFFF;
+  margin-left: 6px;
+  text-decoration: none;
+  transition: opacity 0.2s linear;
+}
+
+.sign-container__login-link:hover {
+  opacity: 0.6;
+}

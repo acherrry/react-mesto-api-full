@@ -1,0 +1,23 @@
+.place__like-button {
+  background: transparent url(../../../../src/images/place/__like-button/like-button-disabled.svg) no-repeat center;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  width: 22px;
+  height: 19px;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.2s linear;
+  flex-shrink: 0;
+}
+
+.place__like-button:hover {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 467px) {
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
+  }
+}

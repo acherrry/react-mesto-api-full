@@ -1,0 +1,13 @@
+.popup__text {
+  margin: 0;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  max-width: 240px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
