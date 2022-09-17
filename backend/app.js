@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 const regExpUrl = require('./utils/validation');
 
 const {
@@ -29,6 +30,8 @@ app.use(
 
 app.use(cookieParser());
 
+app.use(requestLogger);
+
 app.post('/signup', express.json(), celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
@@ -51,6 +54,8 @@ app.delete('/signout', loginOut);
 app.use(auth);
 app.use(userRouter);
 app.use(cardRouter);
+
+app.use(errorLogger);
 
 app.use((req, res, next) => next(new NotFoundError('Страница не найдена')));
 
