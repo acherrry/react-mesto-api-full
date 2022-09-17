@@ -7,6 +7,7 @@ const UnauthorizedError = require('../errors/unauthorized-err');
 const NotFoundError = require('../errors/not-found-err');
 const ConflictError = require('../errors/conflict-err');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
 const { OK, CREATED } = require('../utils/constants');
 
 const getUser = async (req, res, next) => {
@@ -78,7 +79,7 @@ const login = async (req, res, next) => {
     if (!comparablePassword) {
       throw new UnauthorizedError('Передан неверный email или пароль');
     }
-    const token = jwt.sign({ _id: user._id }, 'some-secret-key');
+    const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
 
     res.cookie('jwt', token, {
       expiresIn: 604800,

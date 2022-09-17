@@ -2,8 +2,6 @@
 logs
 *.log
 npm-debug.log*
-
-# Secret
 .env
 
 # Dependency directory
