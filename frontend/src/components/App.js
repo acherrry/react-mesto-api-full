@@ -28,7 +28,6 @@ function App() {
   const [cardToDelete, setCardToDelete] = React.useState({});
   const [selectedCard, setSelectedCard] = React.useState(null);
   const [loggedIn, setLoggedIn] = React.useState(false);
-  console.log(loggedIn);
   const [email, setEmail] = React.useState("");
   const [isInfoTooltip, setIsInfoTooltip] = React.useState(false);
   const [tooltipImg, setTooltipImg] = React.useState(false);
@@ -40,10 +39,8 @@ function App() {
     if (loggedIn) {
       history.push("/");
 
-      Promise.all([api.getUserInfo(), api.getCards()])
-      .then(([userData, cardsArray]) => {
-        console.log(cardsArray);
-        setCurrentUser(userData);
+      api.getCards()
+      .then((cardsArray) => {
         setCards(cardsArray.reverse());
       })
       .catch((err) => {
@@ -53,15 +50,14 @@ function App() {
   }, [loggedIn, history]);
   
   React.useEffect(() => {
-      Auth.getContent()
-        .then((res) => {
-        setEmail(res.email);
+      api.getUserInfo()
+      .then((userData) => {
+        setCurrentUser(userData);
+        setEmail(userData.email);
         setLoggedIn(true);
       })
-      .catch(err => {
-        console.log(`${err}`);
-      });
-  }, [history]);
+      .catch(err => console.log(err));
+  }, [loggedIn, history]);
 
   const onLogin = (data) => {
     setEmail(data.email);

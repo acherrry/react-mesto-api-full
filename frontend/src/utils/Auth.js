@@ -34,17 +34,6 @@ export const authorize = ({email, password}) => {
   .then(checkResponse);
 };
 
-export const getContent = () => {
-  return fetch(`${BASE_URL}/users/me`, {
-    credentials: 'include',
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    }
-  })
-  .then(checkResponse);
-}
-
 export const loginOut = (res) => {
   return fetch(`${BASE_URL}/signout`, {
     credentials: 'include',
