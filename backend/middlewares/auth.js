@@ -8,7 +8,7 @@ const auth = (req, res, next) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
+    payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'jwt-secret');
   } catch (err) {
     return next(new UnauthorizedError('Чтобы выполнить действия, пожалуйста, авторизуйтесь'));
   }

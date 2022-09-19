@@ -79,7 +79,7 @@ const login = async (req, res, next) => {
     if (!comparablePassword) {
       throw new UnauthorizedError('Передан неверный email или пароль');
     }
-    const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
+    const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'jwt-secret');
 
     res.cookie('jwt', token, {
       expiresIn: 604800,
